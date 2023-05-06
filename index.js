@@ -1,4 +1,5 @@
 const descriptions = document.querySelectorAll(".description-display");
+const ratings = document.querySelectorAll(".rating-display .value");
 
 for (let desc of descriptions.values()) {
   let content = desc.innerText;
@@ -8,4 +9,13 @@ for (let desc of descriptions.values()) {
     content = content + '<a href="#">...</a>';
   }
   desc.innerHTML = content;
+}
+
+for (let rating of ratings) {
+  let ratingValue = parseFloat(rating.innerText);
+
+  if (ratingValue > 4.7) {
+    rating.classList.add("high-rating");
+    rating.classList.remove("value");
+  }
 }
